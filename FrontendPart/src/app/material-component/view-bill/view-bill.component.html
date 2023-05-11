@@ -1,0 +1,105 @@
+
+<mat-card>
+  <b><span>View Bill</span></b>
+
+</mat-card>
+
+<hr>
+<mat-card>
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyfilter($event)">
+  </mat-form-field>
+  </mat-card>
+<hr>
+
+<!-- table -->
+<div class="responsive_table">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>
+        <b style="color: rgb(164, 17, 166)">
+          <h3><b>Name</b></h3>
+         </b>
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>
+        <b style="color: rgb(164, 17, 166)">
+          <h3><b>Date</b></h3>
+         </b>
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.date | date :'shortDate'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef>
+        <b style="color: rgb(164, 17, 166)">
+          <h3><b>Time</b></h3>
+         </b>
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.date | date:'shortTime'}}</td>
+    </ng-container>
+
+
+<!--
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>
+        <b style="color: rgb(164, 17, 166)">
+          <h3><b>Email</b></h3>
+         </b>
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="contactNumber">
+      <th mat-header-cell *matHeaderCellDef>
+        <b style="color: rgb(164, 17, 166)">
+          <h3><b>Contact Number</b></h3>
+         </b>
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.contactNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef>
+        <b style="color: rgb(164, 17, 166)">
+          <h3><b>Total</b></h3>
+         </b>
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.total | currency:'INR':'symbol':'2.2-2' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="view">
+      <th mat-header-cell *matHeaderCellDef>
+        <b style="color: rgb(164, 17, 166)">
+          <h3><b>Action</b></h3>
+         </b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <button mat-icon-button color="primary" matTooltip="View" (click)="handleViewAction(element)">
+          <mat-icon >visibility</mat-icon>
+        </button>
+
+        <button mat-icon-button color="primary" matTooltip="Download Bills" (click)="downloadReportAction(element)">
+          <mat-icon >picture_as_pdf</mat-icon>
+        </button>
+
+        <!-- <button mat-icon-button color="primary" matTooltip="delete" (click)="handleDeleteAction(element)">
+          <mat-icon >delete</mat-icon>
+        </button> -->
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
+    <!-- <tr mat-row *matRowDef="let row; columns: displayColumns"></tr> -->
+    <td>Grand Total</td>
+
+  </table>
+</div>

@@ -1,0 +1,34 @@
+
+
+<mat-toolbar>
+
+
+<!--  -->
+<div>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>storefront</mat-icon>
+  </button>
+  <span>Cafe Management System</span>
+  <span class="example-spacer"></span>
+</div>
+ <div>
+  <div class="float-right">
+    <a routerLink="/">Home</a> &nbsp;
+    <small>
+      Your cart:
+      <span *ngIf="cart.itemCount > 0">
+        {{ cart.itemCount }} item(s)
+        {{ cart.cartPrice | currency:"INR":"symbol"}}
+      </span>
+      <span *ngIf="cart.itemCount == 0">
+    (empty)
+      </span>
+    </small>
+    <button class="btn btn-sm bg-dark text-white"
+        [disabled]="cart.itemCount == 0" routerLink="/addtocart" >
+      <i class="fa fa-shopping-cart"></i>
+    </button>
+  </div>
+ </div>
+
+</mat-toolbar>

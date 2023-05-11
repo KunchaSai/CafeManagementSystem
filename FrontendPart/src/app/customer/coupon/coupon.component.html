@@ -1,0 +1,57 @@
+<!-- <mat-card>
+    <mat-card-header>
+        <mat-card-title>Coupons</mat-card-title>
+        <mat-card-subtitle>Choose your choice</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+       <img matCardImage src="https://media.istockphoto.com/id/598820096/vector/twenty-percents-sale.jpg?s=612x612&w=0&k=20&c=nGIUSXRYbzRyL7T8r5Rexyemmu8-jIlflQ4RI3wIKEw="  width="50px" height="500px"> -->
+<!--
+      <h1>50% off by adding {{1000| currency:"INR":"symbol":"2.2-2"}} to your cart </h1>
+      <h1>20% off by adding {{500| currency:"INR":"symbol":"2.2-2"}} to your cart </h1>
+      <h1>10% off by adding below  {{40| currency:"INR":"symbol":"2.2-2"}} to your cart </h1> -->
+    <!-- </mat-card-content> -->
+    <!-- <mat-card-actions align="start"> -->
+        <!-- <button mat-button (click)="onAction1">Action1</button> -->
+
+    <!-- </mat-card-actions> -->
+
+<!-- </mat-card> -->
+
+
+
+
+
+<div class="container border ">
+  <div class="modal-header">
+    <h5 class="modal-title"><h1>Vouchers</h1></h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" routerLink="/addtocart" aria-label="Close"></button>
+  </div>
+  <div class="modal-body" class="mycontain">
+    <div class="card" style="width: 18rem;">
+      <img src="https://media.istockphoto.com/id/598820096/vector/twenty-percents-sale.jpg?s=612x612&w=0&k=20&c=nGIUSXRYbzRyL7T8r5Rexyemmu8-jIlflQ4RI3wIKEw=" class="card-img-top" alt="coupon">
+      <div class="card-body">
+        <h5 class="card-title">Super sale</h5>
+        <p class="card-text"> Buy {{500 | currency:"INR":"symbol":"2.2-2"}} or above it <br>
+         to get 20% Discount
+        </p>
+        <button href="#" class="btn btn-primary" (click)="applyDiscount(coupons[0])">apply</button>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="https://www.typecalendar.com/wp-content/uploads/2023/03/Coupon.jpg" class="card-img-top" alt="Coupon">
+      <div class="card-body">
+        <h5 class="card-title">super sale</h5>
+
+        <p class="card-text"> Buy {{1500 | currency:"INR":"symbol":"2.2-2"}}  <br>
+           with 25% Discount
+         </p>
+         <button href="#" class="btn btn-primary" (click)="applyDiscount(coupons[1])">apply</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" routerLink="/addtocart">Close</button>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <mat-toolbar>
+      <!--  -->
+      <div>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>storefront</mat-icon>
+        </button>
+        <span>Cafe Management System</span>
+        <span class="example-spacer"></span>
+      </div>
+      <div>
+      </div>
+
+    </mat-toolbar>
+
+  </div>
+  <div class="row">
+    <div class="col mt-2">
+
+      <table class="table table-bordered table-striped p-2">
+        <thead>
+          <tr>
+            <th>Quantity</th>
+            <th>Product</th>
+            <th>Category</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="cart.lines.length == 0">
+            <td colspan="4" class="text-center">
+              Your cart is empty
+            </td>
+          </tr>
+          <tr *ngFor="let line of cart.lines">
+            <td>
+              <input type="number" class="form-control-sm" style="width:5em" [value]="line.quantity"
+                (change)="cart.updateQuantity(line.product, $event)" />
+            </td>
+            <td>{{line.product.name}}</td>
+            <td>{{line.product.categoryName}}</td>
+            <td class="text-right">
+              {{line.product.price | currency:"INR":"symbol":"2.2-2"}}
+            </td>
+            <td class="text-right">
+              {{(line.lineTotal) | currency:"INR":"symbol":"2.2-2" }}
+            </td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-danger" mat-icon-button color="primary" (click)="cart.removeLine(line.product.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="text-right"> Grass Total:</td>
+            <td class="text-right">
+              {{cart.cartPrice | currency:"INR":"symbol":"2.2-2"}}
+            </td>
+          </tr>
+          <tr  *ngIf="discount>=0">
+            <td colspan="3" class="text-right">Discount:</td>
+            <td class="text-right">
+              {{discount | currency:"INR":"symbol":"2.2-2"}}
+            </td>
+          </tr>
+
+          <tr *ngIf="discount>=0">
+            <td colspan="3" class="text-right">Net Total:</td>
+            <td class="text-right">
+              {{cart.cartPrice-discount | currency:"INR":"symbol":"2.2-2"}}
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="text-center">
+        <button class="btn btn-outline-success m-1"  (click)="applycoupon()" >
+          Apply coupon
+        </button>
+        <button class="btn btn-outline-warning m-1" routerLink="/exploremore" >
+          Add more Items
+        </button>
+        <button type="button" class="btn btn-outline-success" routerLink="/checkout" [disabled]="cart.lines.length == 0" (click)="onedata(cart.lines)">
+          Proceed for Billing
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- there is validators array in angular from which all validators are derived -->

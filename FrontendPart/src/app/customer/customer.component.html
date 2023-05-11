@@ -1,0 +1,142 @@
+<!-- <app-coupon></app-coupon> -->
+<app-add-to-cart></app-add-to-cart>
+
+<hr>
+  <!-- Card -->
+  <div class="container-fluid ">
+    <div class="row">
+      <mat-card class=" pd-3 col-3 col-sm-3" *ngFor="let data of dataSource">
+        <mat-card-header>
+          <mat-card-title><h1>Category: <b>{{data.categoryName}}</b></h1></mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{data.image}}" alt="Photo of a Shiba Inu" height="40%">
+        <mat-card-content>
+          <h4 class="card-title">Name: {{data.name}}</h4>
+          <p class="card-text">Description: {{data.description}}</p>
+          <p class="card-text">{{data.price | currency:'INR':'symbol':'2.2-2'}}</p>
+          <button class="btn btn-success" (click)="addToCart(data)">Add to cart</button>
+        </mat-card-content>
+      </mat-card>&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- Card End -->
+
+
+  <hr>
+<!-- <app-animation></app-animation> -->
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-white text-muted">
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3 text-secondary"></i>Company name
+          </h6>
+          <p>
+            Hundreds of flavors under one roof     </p>
+            <p>Food that makes you say wow</p>
+            <p>Fun. Fast. Tasty. Delicious.</p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+          <p>
+            <a routerLink="/exploremore" class="text-reset">Dosa</a>
+          </p>
+          <p>
+            <a routerLink="/exploremore" class="text-reset">Uttapam</a>
+          </p>
+          <p>
+            <a routerLink="/exploremore" class="text-reset">Dhabeli</a>
+          </p>
+          <p>
+            <a routerLink="/exploremore" class="text-reset">vada pav</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a routerLink="/exploremore" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a routerLink="/exploremore" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a routerLink="/exploremore" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a routerLink="/exploremore" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3 text-secondary"></i> Bangalore  India</p>
+          <p>
+            <i class="fas fa-envelope me-3 text-secondary"></i>
+            info@feuji.com
+          </p>
+          <p><i class="fas fa-phone me-3 text-secondary"></i> + 91 234 567 88</p>
+          <p><i class="fas fa-print me-3 text-secondary"></i> + 91 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links -->
+
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+    © 2021 Copyright:
+    <a class="text-reset fw-bold" href="https://feuji.com/">Feuji.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+  <!-- pagination -->
+  <!-- <div class="form-inline float-left mr-1">
+    <select class="form-control" [value]="productsPerPage"
+            (change)="changePageSize($event)">
+      <option value="3">3 per Page</option>
+      <option value="4">4 per Page</option>
+      <option value="6">6 per Page</option>
+      <option value="8">8 per Page</option>
+    </select>
+  </div>
+
+  <div class="btn-group float-right">
+    <button *ngFor="let page of pageNumbers" (click)="changePage(page)"
+        class="btn btn-outline-primary" [class.active]="page == selectedPage">
+      {{page}}
+    </button>
+  </div> -->
+
+
+
